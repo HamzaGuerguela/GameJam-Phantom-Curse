@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     private Collider2D col;
+
+    private bool facingRight = false;
     
     
     #endregion
@@ -56,7 +58,12 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
     }
-    
+
+    private void Update()
+    {
+       
+    }
+
     #endregion
 
     private void Movement()
@@ -67,6 +74,24 @@ public class PlayerController : MonoBehaviour
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput * movementSpeed * Time.deltaTime;
         transform.position = currentPosition;
+
+        if (movementInput < 0f)
+        {
+            facingRight = true;
+        }
+        else if (movementInput > 0f)
+        {
+            facingRight = false;
+        }
+
+        if (!facingRight)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (facingRight)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 
     private void Jump()
@@ -90,4 +115,5 @@ public class PlayerController : MonoBehaviour
         
         return Physics2D.OverlapArea(topLeftPoint, bottomRight, ground);
     }
+    
 }
