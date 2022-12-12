@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private Collider2D col;
 
     private bool facingRight = false;
+
+    private Animator animator;
     
     
     #endregion
@@ -37,6 +39,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         col = GetComponent<Collider2D>();
+
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -75,6 +79,8 @@ public class PlayerController : MonoBehaviour
         currentPosition.x += movementInput * movementSpeed * Time.deltaTime;
         transform.position = currentPosition;
 
+        
+        // Flipping Player
         if (movementInput < 0f)
         {
             facingRight = true;
@@ -92,6 +98,16 @@ public class PlayerController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
+        
+        // Animation
+        if (movementInput != 0)
+        {
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
     }
 
     private void Jump()
@@ -100,6 +116,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
             Debug.Log("test");
+            animator.SetBool("Jump", true);
         }
     }
 
@@ -114,6 +131,7 @@ public class PlayerController : MonoBehaviour
         bottomRight.y -= col.bounds.extents.y;
         
         return Physics2D.OverlapArea(topLeftPoint, bottomRight, ground);
+        
     }
     
 }
