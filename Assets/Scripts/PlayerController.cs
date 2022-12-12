@@ -13,21 +13,29 @@ public class PlayerController : MonoBehaviour
    
     #region Inspector
 
+    [Header("Movement")]
+    [Min(1f)]
     [SerializeField] private float movementSpeed;
 
+    [Min(1f)]
     [SerializeField] private float jumpSpeed;
 
-    [SerializeField] private LayerMask ground;
+    [Header("GroundCheck")]
+    [SerializeField] private LayerMask groundLayer;
+
+    [SerializeField] private Transform groundCheck;
+
+    [SerializeField] private float groundCheckRadius;
 
     private Rigidbody2D rb;
 
-    private Collider2D col;
-
-    private bool facingRight = false;
+    private bool Grounded;
 
     private Animator animator;
-    
-    
+
+    private float direction = 0f;
+
+
     #endregion
 
     #region Unity Event Functions
@@ -37,8 +45,6 @@ public class PlayerController : MonoBehaviour
         playerActionControls = new PlayerActionControls();
 
         rb = GetComponent<Rigidbody2D>();
-
-        col = GetComponent<Collider2D>();
 
         animator = GetComponent<Animator>();
     }
@@ -60,78 +66,60 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement();
+        
     }
 
     private void Update()
     {
+       Movement();
+
+       GroundCheck();
        
+       Animator();
     }
 
     #endregion
 
     private void Movement()
     {
-        // Read the movement value
-        float movementInput = playerActionControls.Player.Move.ReadValue<float>();
-        // Move the player
-        Vector3 currentPosition = transform.position;
-        currentPosition.x += movementInput * movementSpeed * Time.deltaTime;
-        transform.position = currentPosition;
+        direction = playerActionControls.Player.Move.ReadValue<float>();
 
-        
-        // Flipping Player
-        if (movementInput < 0f)
+        if (direction > 0f)
         {
-            facingRight = true;
+            rb.velocity = new Vector2(direction * movementSpeed, rb.velocity.y);
+            transform.localScale = new Vector2(1f, 1f);
         }
-        else if (movementInput > 0f)
+        else if (direction < 0f)
         {
-            facingRight = false;
-        }
-
-        if (!facingRight)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        else if (facingRight)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        
-        // Animation
-        if (movementInput != 0)
-        {
-            animator.SetBool("Run", true);
+            rb.velocity = new Vector2(direction * movementSpeed, rb.velocity.y);
+            transform.localScale = new Vector2(-1f, 1f);
         }
         else
         {
-            animator.SetBool("Run", false);
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
+
     }
 
     private void Jump()
     {
-        if (IsGrounded())
+        if (Grounded)
         {
-            rb.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
-            Debug.Log("test");
-            animator.SetBool("Jump", true);
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
     }
 
-    private bool IsGrounded()
+    private void GroundCheck()
     {
-        Vector2 topLeftPoint = transform.position;
-        topLeftPoint.x -= col.bounds.extents.x * 0.9f;
-        topLeftPoint.y += col.bounds.extents.y;
-
-        Vector2 bottomRight = transform.position;
-        bottomRight.x += col.bounds.extents.x * 0.9f;
-        bottomRight.y -= col.bounds.extents.y;
-        
-        return Physics2D.OverlapArea(topLeftPoint, bottomRight, ground);
-        
+        Grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
+
+    private void Animator()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("JumpSpeed", (rb.velocity.y));
+        animator.SetBool("Grounded", Grounded);
+    }
+    
     
 }
