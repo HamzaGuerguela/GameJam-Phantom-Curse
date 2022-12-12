@@ -5,6 +5,8 @@ using System.Linq;
 
 using UnityEngine;
 
+using Random = UnityEngine.Random;
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -31,9 +33,14 @@ public class PlayerController : MonoBehaviour
 
     private bool Grounded;
 
+    public bool randomTimer = false;
+
     private Animator animator;
 
     private float direction = 0f;
+
+    private float nextTime;
+    private float modifier;
 
 
     #endregion
@@ -62,6 +69,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerActionControls.Player.Jump.performed += _ => Jump();
+        
+        nextTime = 0.0f;
     }
 
     private void FixedUpdate()
@@ -76,6 +85,8 @@ public class PlayerController : MonoBehaviour
        GroundCheck();
        
        Animator();
+       
+       Timer();
     }
 
     #endregion
@@ -119,7 +130,22 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("JumpSpeed", (rb.velocity.y));
         animator.SetBool("Grounded", Grounded);
+        animator.SetBool("RandomTime", randomTimer);
     }
-    
-    
+
+    private void Timer()
+    {
+        //Get a random value
+        modifier = Random.Range(1.0f,3.0f);
+     
+        //Set nextTime equal to current run time plus modifier
+        nextTime = Time.time + modifier;
+ 
+        //Check if current system time is greater than nextTime
+        if(Time.time > nextTime)
+        {
+            randomTimer = true;
+            
+        }
+    }
 }
