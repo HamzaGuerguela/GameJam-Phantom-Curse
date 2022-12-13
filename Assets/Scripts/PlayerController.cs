@@ -35,9 +35,12 @@ public class PlayerController : MonoBehaviour
 
     private bool Grounded;
 
+    private bool attackPressed = false;
+
     private bool randomTimer = false;
 
     private bool canMove = true;
+    private bool canAttack = true;
 
     private Animator animator;
 
@@ -74,7 +77,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        playerActionControls.Player.Jump.performed += _ => Jump();
+        playerActionControls.Player.Jump.started += _ => Jump();
+        playerActionControls.Player.Jump.canceled += _ => LazyJump();
+        
+        playerActionControls.Player.Attack.performed += _ => Attack();
         
         nextTime = Random.Range(2f, 6f);
 
@@ -93,11 +99,11 @@ public class PlayerController : MonoBehaviour
             Movement();
         }
 
-       GroundCheck();
+        GroundCheck();
        
-       Animator();
+        Animator();
        
-       FallDetectorPosition();
+        FallDetectorPosition();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -149,9 +155,21 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        Debug.Log("Test");
         if (Grounded && canMove)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        }
+    }
+
+    private void LazyJump()
+    {
+
+        if (rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 2f);
+            
+            Debug.Log("LazyJump");
         }
     }
 
@@ -175,27 +193,37 @@ public class PlayerController : MonoBehaviour
 
     private void IdleAnimation()
     {
-        Invoke("StartTimer", nextTime);
+        if (!attackPressed && !randomTimer)
+        {
+            Invoke("EndTimer", 1f);
+            
+            
+        }
     }
 
-    private void StartTimer()
-    {
-        randomTimer = true;
-
-        Invoke("EndTimer", 0.09f);
-        Debug.Log("TEST");
-    }
-    
     private void EndTimer()
     {
-        randomTimer = false;
-
-        Debug.Log("TEST2222");
+        randomTimer = true;
+        
+        
     }
 
     private void EndIdleAnimation()
     {
-        Debug.Log("EZ");
+        randomTimer = false;
+        
+        
+    }
+
+    private void Attack()
+    {
+        attackPressed = true;
+
+        if (Grounded && canAttack)
+        {
+            animator.Play("ANIM_Player_Attack_Basic");
+        }
+        
     }
     
     #endregion
@@ -230,13 +258,15 @@ public class PlayerController : MonoBehaviour
         
         canMove = false;
 
+        canAttack = false;
+
         rb.velocity = new Vector2(0, 0);
         
         animator.SetTrigger("DeathTrigger");
 
         Invoke("DelayedFadeOut", 2f);
 
-        Invoke("CheckpointRespawnFadeIn", 3f);
+        Invoke("CheckpointRespawnFadeIn", 3.3f);
         
     }
 
@@ -244,11 +274,13 @@ public class PlayerController : MonoBehaviour
     {
         animator.Play("ANIM_Player_Idle");
         
-        FindObjectOfType<GameController>().FadeIn();
-        
         transform.position = respawnPoint;
+        
+        FindObjectOfType<GameController>().FadeIn();
 
         canMove = true;
+        
+        canAttack = true;
     }
 
     private void DelayedFadeOut()
