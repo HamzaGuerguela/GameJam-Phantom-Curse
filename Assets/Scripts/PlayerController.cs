@@ -29,11 +29,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float groundCheckRadius;
 
+    [SerializeField] private GameObject fallDetector;
+
     private Rigidbody2D rb;
 
     private bool Grounded;
 
-    public bool randomTimer = false;
+    private bool randomTimer = false;
+
+    private bool canMove = true;
 
     private Animator animator;
 
@@ -42,7 +46,9 @@ public class PlayerController : MonoBehaviour
     private float nextTime;
     private float modifier;
 
-
+    private Vector3 respawnPoint;
+    
+    
     #endregion
 
     #region Unity Event Functions
@@ -70,7 +76,9 @@ public class PlayerController : MonoBehaviour
     {
         playerActionControls.Player.Jump.performed += _ => Jump();
         
-        nextTime = 0.0f;
+        nextTime = Random.Range(2f, 6f);
+
+        respawnPoint = transform.position;
     }
 
     private void FixedUpdate()
@@ -80,16 +88,43 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-       Movement();
+        if (canMove)
+        {
+            Movement();
+        }
 
        GroundCheck();
        
        Animator();
        
-       Timer();
+       FallDetectorPosition();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "FallDetector")
+        {
+            FallRespawn();
+            
+            
+        }
+        else if (collision.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+
+
+        }
+        else if (collision.tag == "InstaDeath")
+        {
+            
+            CheckpointRespawn();
+            
+        }
     }
 
     #endregion
+
+    #region Movement
 
     private void Movement()
     {
@@ -114,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (Grounded)
+        if (Grounded && canMove)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
@@ -125,6 +160,11 @@ public class PlayerController : MonoBehaviour
         Grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
+
+    #endregion
+
+    #region Animation
+
     private void Animator()
     {
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
@@ -133,19 +173,89 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("RandomTime", randomTimer);
     }
 
-    private void Timer()
+    private void IdleAnimation()
     {
-        //Get a random value
-        modifier = Random.Range(1.0f,3.0f);
-     
-        //Set nextTime equal to current run time plus modifier
-        nextTime = Time.time + modifier;
- 
-        //Check if current system time is greater than nextTime
-        if(Time.time > nextTime)
-        {
-            randomTimer = true;
-            
-        }
+        Invoke("StartTimer", nextTime);
     }
+
+    private void StartTimer()
+    {
+        randomTimer = true;
+
+        Invoke("EndTimer", 0.09f);
+        Debug.Log("TEST");
+    }
+    
+    private void EndTimer()
+    {
+        randomTimer = false;
+
+        Debug.Log("TEST2222");
+    }
+
+    private void EndIdleAnimation()
+    {
+        Debug.Log("EZ");
+    }
+    
+    #endregion
+
+    #region Respawn
+
+    private void FallDetectorPosition()
+    {
+        fallDetector.transform.position = new Vector2(transform.position.x, fallDetector.transform.position.y);
+    }
+
+    private void FallRespawn()
+    {
+        canMove = false;
+        
+        FindObjectOfType<GameController>().FadeOut();
+
+        Invoke("FallRespawnFadeIn", 2f);
+    }
+
+    private void FallRespawnFadeIn()
+    {
+        FindObjectOfType<GameController>().FadeIn();
+        
+        transform.position = respawnPoint;
+
+        canMove = true;
+    }
+    
+    private void CheckpointRespawn()
+    {
+        
+        canMove = false;
+
+        rb.velocity = new Vector2(0, 0);
+        
+        animator.SetTrigger("DeathTrigger");
+
+        Invoke("DelayedFadeOut", 2f);
+
+        Invoke("CheckpointRespawnFadeIn", 3f);
+        
+    }
+
+    private void CheckpointRespawnFadeIn()
+    {
+        animator.Play("ANIM_Player_Idle");
+        
+        FindObjectOfType<GameController>().FadeIn();
+        
+        transform.position = respawnPoint;
+
+        canMove = true;
+    }
+
+    private void DelayedFadeOut()
+    {
+        FindObjectOfType<GameController>().FadeOut();
+    }
+
+    #endregion
+  
 }
