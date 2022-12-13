@@ -35,9 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private bool Grounded;
 
-    private bool attackPressed = false;
-
-    private bool randomTimer = false;
+    private bool idleBool = false;
 
     private bool canMove = true;
     private bool canAttack = true;
@@ -45,6 +43,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     private float direction = 0f;
+
+    private int randomInt;
 
     private float nextTime;
     private float modifier;
@@ -188,37 +188,31 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("JumpSpeed", (rb.velocity.y));
         animator.SetBool("Grounded", Grounded);
-        animator.SetBool("RandomTime", randomTimer);
+        animator.SetBool("RandomTime", idleBool);
     }
 
     private void IdleAnimation()
     {
-        if (!attackPressed && !randomTimer)
+        
+        randomInt = Random.Range(1, 40);
+        if (randomInt <= 3)
         {
-            Invoke("EndTimer", 1f);
-            
-            
+            idleBool = true;
         }
-    }
-
-    private void EndTimer()
-    {
-        randomTimer = true;
-        
-        
+        else
+        {
+            return;
+        }
     }
 
     private void EndIdleAnimation()
     {
-        randomTimer = false;
-        
-        
+        idleBool = false;
+
     }
 
     private void Attack()
     {
-        attackPressed = true;
-
         if (Grounded && canAttack)
         {
             animator.Play("ANIM_Player_Attack_Basic");

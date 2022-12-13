@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a657cd34a28d857488c204cea46b67a9
+guid: eac720127a1fccc45b8ffa4554ac4b6d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk-Sheet (1)_0
+      name: Fixed_Walk 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a08c34315c57a5c47917f377fb625257
-      internalID: 367040675
+      spriteID: 7f365edf1dc663b43ba6d8e1e847d4f1
+      internalID: -1439282397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk-Sheet (1)_1
+      name: Fixed_Walk 1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -151,17 +151,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da582f1c25d696540a23ce7fe5cbc32e
-      internalID: -980172883
+      spriteID: 35a30dba4a353f842bdc6d8113529c12
+      internalID: 518105520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk-Sheet (1)_2
+      name: Fixed_Walk 1_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 31
         y: 0
         width: 16
         height: 16
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3def48b47bb0c74da5107cacb55a3d0
-      internalID: 252031803
+      spriteID: 3d8e0830b3b812d4dac003adb2f394f3
+      internalID: 325366486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk-Sheet (1)_3
+      name: Fixed_Walk 1_3
       rect:
         serializedVersion: 2
         x: 48
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ceb8cedb596fd442800e808ea43e9be
-      internalID: 40637172
+      spriteID: ddf87d40dbb797d46a691f6240507c2a
+      internalID: -731347602
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      walk-Sheet (1)_3: 40637172
-      walk-Sheet (1)_2: 252031803
-      walk-Sheet (1)_1: -980172883
-      walk-Sheet (1)_0: 367040675
+      Fixed_Walk 1_2: 325366486
+      Fixed_Walk 1_0: -1439282397
+      Fixed_Walk 1_1: 518105520
+      Fixed_Walk 1_3: -731347602
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
