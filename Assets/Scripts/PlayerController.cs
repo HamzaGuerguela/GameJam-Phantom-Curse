@@ -48,8 +48,10 @@ public class PlayerController : MonoBehaviour
     private float nextTime;
     private float modifier;
 
-    private Vector3 respawnPoint;
+    public Vector3 respawnPoint;
     private Vector3 deathPoint;
+
+    public Vector3 playerPosition;
     
     
     #endregion
@@ -104,6 +106,8 @@ public class PlayerController : MonoBehaviour
         Animator();
        
         FallDetectorPosition();
+
+        playerPosition = transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
