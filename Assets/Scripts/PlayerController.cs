@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
     private bool idleBool = false;
 
     private bool canMove = true;
-    private bool canAttack = true;
 
     private Animator animator;
 
@@ -50,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private float modifier;
 
     private Vector3 respawnPoint;
+    private Vector3 deathPoint;
     
     
     #endregion
@@ -117,12 +117,12 @@ public class PlayerController : MonoBehaviour
         else if (collision.tag == "Checkpoint")
         {
             respawnPoint = transform.position;
-
+            
 
         }
         else if (collision.tag == "InstaDeath")
         {
-            
+            deathPoint = transform.position;
             CheckpointRespawn();
             
         }
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
     private void IdleAnimation()
     {
         
-        randomInt = Random.Range(1, 40);
+        randomInt = Random.Range(1, 35);
         if (randomInt <= 3)
         {
             idleBool = true;
@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        if (Grounded && canAttack)
+        if (Grounded && rb.velocity.x == 0f)
         {
             animator.Play("ANIM_Player_Attack_Basic");
         }
@@ -252,8 +252,6 @@ public class PlayerController : MonoBehaviour
         
         canMove = false;
 
-        canAttack = false;
-
         rb.velocity = new Vector2(0, 0);
         
         animator.SetTrigger("DeathTrigger");
@@ -274,7 +272,6 @@ public class PlayerController : MonoBehaviour
 
         canMove = true;
         
-        canAttack = true;
     }
 
     private void DelayedFadeOut()

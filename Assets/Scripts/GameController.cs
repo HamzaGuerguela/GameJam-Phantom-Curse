@@ -44,4 +44,9 @@ public class GameController : MonoBehaviour
     {
         fade.SetActive(false);
     }
+
+    private void FadeOutBlackScreen()
+    {
+        
+    }
 }
