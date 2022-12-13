@@ -118,7 +118,6 @@ public class PlayerController : MonoBehaviour
         {
             respawnPoint = transform.position;
             
-
         }
         else if (collision.tag == "InstaDeath")
         {
@@ -155,7 +154,6 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("Test");
         if (Grounded && canMove)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
@@ -169,7 +167,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y / 2f);
             
-            Debug.Log("LazyJump");
         }
     }
 

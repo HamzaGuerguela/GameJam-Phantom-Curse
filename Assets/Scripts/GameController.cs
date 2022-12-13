@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour
         
         fade.GetComponent<Animator>().Play("ANIM_Fade_Out");
         
-        Debug.Log("FADE OUT");
         
     }
 
