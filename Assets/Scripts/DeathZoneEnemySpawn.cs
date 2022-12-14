@@ -9,14 +9,12 @@ public class DeathZoneEnemySpawn : MonoBehaviour
 
     [SerializeField] private GameObject enemyObject;
 
-    [SerializeField] private GameObject spriteObject;
-    
     [SerializeField] private float timeUntilSpawn;
 
     private Collider2D thisCollider;
 
-    public bool enemyCanSpawn = false;
-
+    private Animator animator;
+    
     #endregion
 
     #region Unity Event Functions
@@ -24,8 +22,8 @@ public class DeathZoneEnemySpawn : MonoBehaviour
     private void Start()
     {
         thisCollider = GetComponent<Collider2D>();
-        
-        
+
+       animator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -40,8 +38,8 @@ public class DeathZoneEnemySpawn : MonoBehaviour
             FindObjectOfType<PlayerController>().PlayerDelayedDeath();
             
             FindObjectOfType<PlayerController>().FreezePlayerOnDeath();
-            
-            spriteObject.SetActive(false);
+
+            DeactivateSprite();
 
             Invoke("EnemySpawn", timeUntilSpawn);
 
@@ -58,5 +56,17 @@ public class DeathZoneEnemySpawn : MonoBehaviour
         
     }
 
+    private void DeactivateSprite()
+    {
+        animator.Play("ANIM_Enemy_Collider_Spawner");
+        
+        
+    }
+
+    public void AnimationEvent()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
+    
     #endregion
 }
