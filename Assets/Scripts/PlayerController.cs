@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove = true;
 
+    private bool canAttack = true;
+
     private Animator animator;
 
     private float direction = 0f;
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
     private float modifier;
 
     public Vector3 respawnPoint;
-    private Vector3 deathPoint;
+    public Vector3 playerDeathPoint;
 
     public Vector3 playerPosition;
     
@@ -125,7 +127,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.tag == "InstaDeath")
         {
-            deathPoint = transform.position;
+            
+            
+            canAttack = false;
+            playerDeathPoint = transform.position;
             CheckpointRespawn();
             
         }
@@ -214,7 +219,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
-        if (Grounded && rb.velocity.x == 0f)
+        if (Grounded && rb.velocity.x == 0f && canAttack)
         {
             animator.Play("ANIM_Player_Attack_Basic");
         }
@@ -272,7 +277,8 @@ public class PlayerController : MonoBehaviour
         FindObjectOfType<GameController>().FadeIn();
 
         canMove = true;
-        
+
+        canAttack = true;
     }
 
     private void DelayedFadeOut()

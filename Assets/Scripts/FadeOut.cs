@@ -25,6 +25,6 @@ public class FadeOut : MonoBehaviour
 
     private void FadeAnimationEvent()
     {
-        
+        FindObjectOfType<GameController>().FadeOutBlackScreen();
     }
 }

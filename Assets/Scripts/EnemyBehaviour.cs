@@ -17,8 +17,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField] private float baseCastDist;
 
-    [SerializeField] private int enemyHealth;
-
     private Rigidbody2D rb2d;
 
     private string facingDirection;

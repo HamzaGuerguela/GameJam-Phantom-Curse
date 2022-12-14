@@ -8,7 +8,10 @@ public class GameController : MonoBehaviour
     #region Inspector
 
     [SerializeField] private GameObject fade;
-    
+
+    [SerializeField] private GameObject enemyPrefab;
+
+    private Vector3 enemyRespawnPosition;
 
     #endregion
 
@@ -44,8 +47,11 @@ public class GameController : MonoBehaviour
         fade.SetActive(false);
     }
 
-    private void FadeOutBlackScreen()
+    public void FadeOutBlackScreen()
     {
-        
+        Debug.Log("Enemy Spawn");
+        FindObjectOfType<PlayerController>().playerDeathPoint = enemyRespawnPosition;
+
+        Instantiate(enemyPrefab, enemyRespawnPosition, Quaternion.identity);
     }
 }
