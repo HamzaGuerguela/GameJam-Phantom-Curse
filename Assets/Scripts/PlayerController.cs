@@ -225,6 +225,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
+        
         if (Grounded && rb.velocity.x == 0f && canAttack)
         {
             animator.Play("ANIM_Player_Attack_Basic");
