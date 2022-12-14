@@ -10,8 +10,12 @@ public class DeathZoneEnemySpawn : MonoBehaviour
     [SerializeField] private GameObject enemyObject;
 
     [SerializeField] private GameObject spriteObject;
+    
+    [SerializeField] private float timeUntilSpawn;
 
     private Collider2D thisCollider;
+
+    public bool enemyCanSpawn = false;
 
     #endregion
 
@@ -20,6 +24,13 @@ public class DeathZoneEnemySpawn : MonoBehaviour
     private void Start()
     {
         thisCollider = GetComponent<Collider2D>();
+        
+        
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -28,14 +39,23 @@ public class DeathZoneEnemySpawn : MonoBehaviour
         {
             FindObjectOfType<PlayerController>().PlayerDelayedDeath();
             
+            FindObjectOfType<PlayerController>().FreezePlayerOnDeath();
+            
             spriteObject.SetActive(false);
+
+            Invoke("EnemySpawn", timeUntilSpawn);
 
             thisCollider.enabled = !thisCollider.enabled;
             
-            enemyObject.SetActive(true);
-            
             Debug.Log("Collided");
         }
+    }
+
+    private void EnemySpawn()
+    {
+        
+        enemyObject.SetActive(true);
+        
     }
 
     #endregion

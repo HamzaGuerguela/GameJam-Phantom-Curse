@@ -54,6 +54,10 @@ public class PlayerController : MonoBehaviour
     public Vector3 playerDeathPoint;
 
     public Vector3 playerPosition;
+
+    private GameObject playerObject;
+
+    private RigidbodyConstraints rbOriginalConstraints;
     
     
     #endregion
@@ -89,6 +93,8 @@ public class PlayerController : MonoBehaviour
         nextTime = Random.Range(2f, 6f);
 
         respawnPoint = transform.position;
+
+        rbOriginalConstraints = (RigidbodyConstraints)rb.constraints;
     }
 
     private void FixedUpdate()
@@ -127,6 +133,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.tag == "InstaDeath")
         {
+            FreezePlayerOnDeath();
+            
             canAttack = false;
             playerDeathPoint = transform.position;
             CheckpointRespawn();
@@ -277,6 +285,11 @@ public class PlayerController : MonoBehaviour
         canMove = true;
 
         canAttack = true;
+        
+        this.GetComponent<Collider2D>().enabled = true;
+
+        rb.constraints = (RigidbodyConstraints2D)rbOriginalConstraints;
+        
     }
 
     private void DelayedFadeOut()
@@ -291,6 +304,13 @@ public class PlayerController : MonoBehaviour
         CheckpointRespawn();
     }
 
+    public void FreezePlayerOnDeath()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        this.GetComponent<Collider2D>().enabled = false;
+    }
+    
     #endregion
   
 }

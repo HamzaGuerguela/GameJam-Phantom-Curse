@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 7157782562714318658}
   spriteObject: {fileID: 1207344832914476201}
+  timeUntilSpawn: 3
+  enemyCanSpawn: 0
 --- !u!61 &1207344832728134703
 BoxCollider2D:
   m_ObjectHideFlags: 0
