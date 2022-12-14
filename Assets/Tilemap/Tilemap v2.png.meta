@@ -179,7 +179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Upper wall
+      name: wall top
       rect:
         serializedVersion: 2
         x: 48
@@ -284,7 +284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid mid mid
+      name: ground mid
       rect:
         serializedVersion: 2
         x: 16
@@ -326,7 +326,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mid wall
+      name: mid wall
       rect:
         serializedVersion: 2
         x: 48
@@ -473,7 +473,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: right bot corner
+      name: bot wall
       rect:
         serializedVersion: 2
         x: 48
@@ -1160,30 +1160,30 @@ TextureImporter:
       Tilemap v2_31: 404383104
       Tilemap v2_36: 999216759
       Tilemap v2_35: -1147805709
-      Mid wall: -98145729
       Upper left corner: -240873673
+      ground mid: -1056888047
       Tilemap v2_18: 1281070433
       Tilemap v2_40: -1571232611
       Tilemap v2_48: -149949123
       Ground Right: 841786650
       Tilemap v2_33: -205957965
       Tilemap v2_42: -925566952
+      bot wall: 2021803859
       Tilemap v2_5: 83238573
       floating block right: -1632306988
       Tilemap v2_11: -425878652
       mid right: 1500268658
+      wall top: 2041602577
       Tilemap v2_25: 492386018
       Tilemap v2_45: 829738319
       Tilemap v2_37: 1625981545
       Tilemap v2_20: 1211502133
       Tilemap v2_30: -1861960362
       Tilemap v2_43: -292462125
-      right bot corner: 2021803859
       Tilemap v2_41: 840734734
       Tilemap v2_28: 1369677626
       Ground Upper Mid: -1904158332
-      mid mid mid: -1056888047
-      Upper wall: 2041602577
+      mid wall: -98145729
       floating block 1 by 1: -26355482
       Tilemap v2_27: -1910415476
       floating part mid: -761030615

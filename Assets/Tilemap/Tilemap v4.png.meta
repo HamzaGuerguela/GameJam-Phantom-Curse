@@ -179,10 +179,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid top
+      name: top wall
       rect:
         serializedVersion: 2
-        x: 48
+        x: 47
         y: 48
         width: 16
         height: 16
@@ -263,10 +263,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid top 2
+      name: top wal
       rect:
         serializedVersion: 2
-        x: 128
+        x: 127
         y: 48
         width: 16
         height: 16
@@ -305,7 +305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid mid mid
+      name: ground mid
       rect:
         serializedVersion: 2
         x: 16
@@ -347,7 +347,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid mid
+      name: mid wall
       rect:
         serializedVersion: 2
         x: 48
@@ -389,7 +389,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid mid mid 2
+      name: ground mi
       rect:
         serializedVersion: 2
         x: 96
@@ -431,7 +431,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid mid 2
+      name: mid wal
       rect:
         serializedVersion: 2
         x: 128
@@ -515,7 +515,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid bot
+      name: bot wall
       rect:
         serializedVersion: 2
         x: 48
@@ -599,7 +599,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mid bot 2
+      name: bot wal
       rect:
         serializedVersion: 2
         x: 128
@@ -801,34 +801,34 @@ TextureImporter:
       floating solo: -273950662
       floating solo 2: 796033734
       floating right 2: 240999523
+      top wal: -405310160
       top mid: 246925126
-      mid mid mid: -504721195
+      mid wal: 758237784
+      mid wall: -2104622561
       left mid: -1679576274
-      mid bot: -575313925
+      top wall: -591143742
       bot right 2: 1056236454
       floating left 2: 1331452953
+      ground mid: -504721195
       mid right 2: 1258707525
       floating mid: -2022469901
       top right: 1305485598
-      mid bot 2: 1849455586
-      mid mid mid 2: 562783636
       floating mid 2: -1404144490
+      bot wall: -575313925
       top mid 2: -633357122
-      mid top 2: -405310160
       mid right: -21396860
-      mid top: -591143742
       bot right: 1748027733
       floating right: -1558520254
-      mid mid: -2104622561
-      mid mid 2: 758237784
       top right 2: 381904779
+      bot left 2: 159983111
       top left: 1115579671
       left mid 2: -1829319728
-      bot left 2: 159983111
       floating left: -733564369
       top left 2: 1599299164
+      ground mi: 562783636
       bot mid 2: -111668250
       bot left: 1784083777
+      bot wal: 1849455586
       bot mid: 1131280944
   spritePackingTag: 
   pSDRemoveMatte: 0
