@@ -12,12 +12,19 @@ public class Checkpoint : MonoBehaviour
 
     public GameObject lightObj;
 
+    public GameObject latern;
+
+    private Animator laternAnimator;
+
     #endregion
 
     #region Unity Event Functions
 
     private void Start()
-    {
+    { 
+
+        laternAnimator = latern.GetComponent<Animator>();
+        
         checkpointPosition = transform.position;
         
         lightObj.SetActive(false);
@@ -34,6 +41,8 @@ public class Checkpoint : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            laternAnimator.Play("ANIM_Checkpoint");
+            
             lightObj.SetActive(true);
             
             GameObject.Find("PlayerController").GetComponent<PlayerController>().respawnPoint = checkpointPosition;;
