@@ -50,8 +50,7 @@ public class GameController : MonoBehaviour
     public void FadeOutBlackScreen()
     {
         Debug.Log("Enemy Spawn");
-        FindObjectOfType<PlayerController>().playerDeathPoint = enemyRespawnPosition;
-
-        Instantiate(enemyPrefab, enemyRespawnPosition, Quaternion.identity);
+        // TODO Make Enemy Set Active in this Event 
+        
     }
 }

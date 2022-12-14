@@ -127,8 +127,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.tag == "InstaDeath")
         {
-            
-            
             canAttack = false;
             playerDeathPoint = transform.position;
             CheckpointRespawn();
@@ -284,6 +282,13 @@ public class PlayerController : MonoBehaviour
     private void DelayedFadeOut()
     {
         FindObjectOfType<GameController>().FadeOut();
+    }
+
+    public void PlayerDelayedDeath()
+    {
+        canAttack = false;
+        playerDeathPoint = transform.position;
+        CheckpointRespawn();
     }
 
     #endregion
