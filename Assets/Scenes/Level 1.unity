@@ -25655,7 +25655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441588355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: -0.065, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26199,6 +26199,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 75fcbbf3-b818-46fa-aea1-1a3713ed760e
     m_ActionName: Player/Attack[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 033fd7ff-8683-4cde-bbe5-0ec8c3d7a31b
+    m_ActionName: UI/ESC[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
