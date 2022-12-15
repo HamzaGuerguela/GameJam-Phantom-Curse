@@ -26,8 +26,8 @@ public class MainMenuController : MonoBehaviour
 
     public void StartButton()
     {
-        SceneManager.LoadScene("Sandbox");
-        Debug.Log("Loading Scene 1");
+        SceneManager.LoadScene("Sandbox 1");
+        
     }
 
     public void ExitButton()
