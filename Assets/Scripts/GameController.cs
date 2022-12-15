@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -125,9 +126,9 @@ public class GameController : MonoBehaviour
         return;
     }
 
-    public void Options()
+    public void MainMenuButton()
     {
-        
+        SceneManager.LoadScene("MainMenu");
     }
 
     #endregion

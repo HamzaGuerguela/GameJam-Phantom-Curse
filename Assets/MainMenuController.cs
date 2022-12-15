@@ -1,18 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Inspector
+
+    [SerializeField] private GameObject mainPanel;
+
+    #endregion
+
+    #region Unity Event Functions
+
+    private void Start()
     {
-        
+        mainPanel.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    #endregion
+
+    public void StartButton()
     {
-        
+        SceneManager.LoadScene("Sandbox");
+        Debug.Log("Loading Scene 1");
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 }
