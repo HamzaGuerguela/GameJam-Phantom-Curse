@@ -60,6 +60,15 @@ public class GameController : MonoBehaviour
         
         
     }
+    
+    public void FadeEndScreen()
+    {
+        fade.SetActive(true);
+        
+        fade.GetComponent<Animator>().Play("ANIM_Fade_End_Screen");
+        
+        
+    }
 
     public void FadeIn()
     {
@@ -130,6 +139,7 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    
 
     #endregion
     
