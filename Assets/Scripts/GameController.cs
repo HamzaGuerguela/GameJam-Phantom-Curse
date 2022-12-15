@@ -12,7 +12,13 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject fade;
 
-    [SerializeField] private GameObject enemyPrefab, menu;
+    [SerializeField] private GameObject enemyPrefab;
+
+    [SerializeField] private GameObject menu;
+    
+    [SerializeField] private GameObject initialMenu;
+    
+    [SerializeField] private GameObject optionMenu1;
 
     private Vector3 enemyRespawnPosition;
 
@@ -38,7 +44,9 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+
+
     }
 
     #endregion
@@ -80,8 +88,11 @@ public class GameController : MonoBehaviour
         {
             menu.SetActive(true);
             
+            Cursor.lockState = CursorLockMode.None;
+            
             Time.timeScale = 0f;
             return;
+            
         }
         
         if (menu.activeInHierarchy)
@@ -89,8 +100,36 @@ public class GameController : MonoBehaviour
             menu.SetActive(false);
 
             Time.timeScale = 1f;
+            
+            Cursor.lockState = CursorLockMode.Locked;
+            
+            optionMenu1.SetActive(false);
+            
             return;
         }
         
+        
     }
+
+    #region Buttons
+
+    public void Continue()
+    {
+        menu.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.None;
+            
+        Time.timeScale = 1f;
+        return;
+    }
+
+    public void Options()
+    {
+        initialMenu.SetActive(false);
+        
+        optionMenu1.SetActive(true);
+    }
+
+    #endregion
+    
 }

@@ -197,7 +197,7 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                 {
                     ""name"": """",
                     ""id"": ""03047f5b-ae38-420c-a57c-8da2a8af9225"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
