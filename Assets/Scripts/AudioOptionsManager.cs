@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+
+using TMPro;
+
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioOptionsManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static float musicVolume { get; private set; }
+    public static float soundEffectsVolume { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    public AudioMixer audioMixer;
+
+    [SerializeField] private TextMeshProUGUI musicSliderText;
+    [SerializeField] private TextMeshProUGUI soundEffectsSliderText;
+    
+    public void OnMusicSliderValueChange(float value)
     {
+        musicVolume = value;
         
+        musicSliderText.text = ((int)(value * 100)).ToString();
+        audioMixer.SetFloat("Music Volume", Mathf.Log10(value) * 20);
+    }
+    public void OnSoundEffectsSliderValueChange(float value)
+    {
+        soundEffectsVolume = value;
+        
+        soundEffectsSliderText.text = ((int)(value * 100)).ToString();
+        audioMixer.SetFloat("Sound Effects Volume", Mathf.Log10(value) * 20);
     }
 }

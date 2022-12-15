@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+using Random = UnityEngine.Random;
+
 public class AudioManager : MonoBehaviour
 {
 
@@ -12,7 +14,28 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup musicMixerGroup;
     [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
     [SerializeField] private Sound[] sounds;
+    
+    
+    [SerializeField] private AudioClip[] stepSounds;
 
+    [SerializeField] private AudioSource footSteps;
+    
+    
+    [SerializeField] private AudioClip[] jumpSounds;
+    
+    [SerializeField] private AudioSource jumpSoundAudioSource;
+    
+    
+    [SerializeField] private AudioClip[] deathSounds;
+    
+    [SerializeField] private AudioSource deathSoundAudioSource;
+    
+    
+    [SerializeField] private AudioClip[] SwordSounds;
+    
+    [SerializeField] private AudioSource swordSoundAudioSource;
+
+    
     #endregion
 
     private void Awake()
@@ -61,5 +84,31 @@ public class AudioManager : MonoBehaviour
         {
             soundToStop.source.Stop();
         }
+    }
+
+    public void PlayerSoundRun()
+    {
+        footSteps.PlayOneShot(stepSounds[Random.Range(0, 4)]);
+        
+        
+    }
+    
+    public void PlayerSoundJump()
+    {
+        jumpSoundAudioSource.PlayOneShot(jumpSounds[Random.Range(0, 1)]);
+        
+        
+    }
+    
+    public void PlayerSoundDeath()
+    {
+        deathSoundAudioSource.PlayOneShot(deathSounds[Random.Range(0, 1)]);
+
+    }
+    
+    public void PlayerSoundSword()
+    {
+        swordSoundAudioSource.PlayOneShot(SwordSounds[Random.Range(0, 2)]);
+
     }
 }

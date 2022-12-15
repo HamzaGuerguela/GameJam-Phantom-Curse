@@ -316,5 +316,28 @@ public class PlayerController : MonoBehaviour
     }
     
     #endregion
+
+    #region Animation Events Sound
+
+    public void RunAnimation()
+    {
+        FindObjectOfType<AudioManager>().PlayerSoundRun();
+    }
+    
+    public void JumpAnimation()
+    {
+        FindObjectOfType<AudioManager>().PlayerSoundJump();
+    }
+
+    public void DeathAnimation()
+    {
+        FindObjectOfType<AudioManager>().PlayerSoundDeath();
+    }
+    
+    public void SwordAnimation()
+    {
+        FindObjectOfType<AudioManager>().PlayerSoundSword();
+    }
+    #endregion
   
 }
