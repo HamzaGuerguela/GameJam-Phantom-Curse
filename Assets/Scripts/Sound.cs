@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sound : MonoBehaviour
+
+[System.Serializable]
+public class Sound
 {
-    #region Inspector
+    public enum AudioTypes { soundEffect, music }
+    public AudioTypes audioType;
+    
+    
+    
+    [HideInInspector] public AudioSource source;
+    public AudioClip clip;
+    public string clipName;
 
-    [SerializeField] private new string name;
-    [SerializeField] private AudioClip clip;
-
-    #endregion
-
-
+    public bool isLoop;
+    public bool playOnAwake;
+    [Range(0,1)] public float volume = 0.5f;
 }
