@@ -36,6 +36,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource swordSoundAudioSource;
 
     
+    [SerializeField] private AudioClip[] CheckpointSounds;
+    
+    [SerializeField] private AudioSource checkpointSoundAudioSource;
+    
+    
     #endregion
 
     private void Awake()
@@ -109,6 +114,12 @@ public class AudioManager : MonoBehaviour
     public void PlayerSoundSword()
     {
         swordSoundAudioSource.PlayOneShot(SwordSounds[Random.Range(0, 2)]);
+
+    }
+    
+    public void CheckpointSound()
+    {
+        checkpointSoundAudioSource.PlayOneShot(CheckpointSounds[Random.Range(0, 2)]);
 
     }
 }
