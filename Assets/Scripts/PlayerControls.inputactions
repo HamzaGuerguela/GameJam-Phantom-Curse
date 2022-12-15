@@ -145,6 +145,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "1142d4c6-bb4b-445b-a4be-d261d75c8fbb",
+            "actions": [
+                {
+                    "name": "ESC",
+                    "type": "Button",
+                    "id": "033fd7ff-8683-4cde-bbe5-0ec8c3d7a31b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9e1eb4f8-dc4c-4c6d-a4a0-4307c6e68a39",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03047f5b-ae38-420c-a57c-8da2a8af9225",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
