@@ -167,6 +167,45 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""1142d4c6-bb4b-445b-a4be-d261d75c8fbb"",
+            ""actions"": [
+                {
+                    ""name"": ""ESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""033fd7ff-8683-4cde-bbe5-0ec8c3d7a31b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9e1eb4f8-dc4c-4c6d-a4a0-4307c6e68a39"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03047f5b-ae38-420c-a57c-8da2a8af9225"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -176,6 +215,9 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_ESC = m_UI.FindAction("ESC", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -280,10 +322,47 @@ public partial class @PlayerActionControls : IInputActionCollection2, IDisposabl
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_ESC;
+    public struct UIActions
+    {
+        private @PlayerActionControls m_Wrapper;
+        public UIActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ESC => m_Wrapper.m_UI_ESC;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @ESC.started -= m_Wrapper.m_UIActionsCallbackInterface.OnESC;
+                @ESC.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnESC;
+                @ESC.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnESC;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @ESC.started += instance.OnESC;
+                @ESC.performed += instance.OnESC;
+                @ESC.canceled += instance.OnESC;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnESC(InputAction.CallbackContext context);
     }
 }

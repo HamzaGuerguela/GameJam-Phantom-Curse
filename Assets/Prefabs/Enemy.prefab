@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceba467e397802b4696d719b8f70212d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 0.65
   castPos: {fileID: 8328515719760516012}
   baseCastDist: 0.5
   deathZoneObj: {fileID: 8328515720158697307}
