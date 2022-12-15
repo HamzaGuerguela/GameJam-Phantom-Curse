@@ -95,6 +95,9 @@ public class PlayerController : MonoBehaviour
         respawnPoint = transform.position;
 
         rbOriginalConstraints = (RigidbodyConstraints)rb.constraints;
+        
+        // Make Player turn left 
+        transform.localScale = new Vector2(-1f, 1f);
     }
 
     private void FixedUpdate()
