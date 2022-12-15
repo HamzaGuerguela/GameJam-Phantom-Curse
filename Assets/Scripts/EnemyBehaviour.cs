@@ -179,5 +179,11 @@ public class EnemyBehaviour : MonoBehaviour
         Destroy(enemyObject);
     }
     
+    public void EnemyAnimationDeath()
+    {
+        FindObjectOfType<AudioManager>().EnemySoundDeath();
+        Debug.Log("enemyDeathSound");
+    }
+    
     #endregion
 }
