@@ -41,6 +41,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource checkpointSoundAudioSource;
     
     
+    [SerializeField] private AudioClip[] enemySounds;
+    
+    [SerializeField] private AudioSource enemyDeathSoundAudioSource;
+    
+    
+    [SerializeField] private AudioClip[] boneSounds;
+    
+    [SerializeField] private AudioSource boneSoundAudioSource;
+    
     #endregion
 
     private void Awake()
@@ -121,5 +130,15 @@ public class AudioManager : MonoBehaviour
     {
         checkpointSoundAudioSource.PlayOneShot(CheckpointSounds[Random.Range(0, 2)]);
 
+    }
+
+    public void EnemySoundDeath()
+    {
+        enemyDeathSoundAudioSource.PlayOneShot(enemySounds[Random.Range(0, 2)]);
+    }
+
+    public void BoneSound()
+    {
+        boneSoundAudioSource.PlayOneShot(boneSounds[Random.Range(0, 2)]);
     }
 }
