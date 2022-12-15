@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gates_0
+      name: gate 1a
       rect:
         serializedVersion: 2
         x: 0
         y: 236
-        width: 48
-        height: 73
+        width: 24
+        height: 66
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,13 +137,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gates_1
+      name: gates 2b
       rect:
         serializedVersion: 2
-        x: 72
+        x: 96
         y: 236
-        width: 48
-        height: 73
+        width: 24
+        height: 66
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,13 +158,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gates_3
+      name: gates 3a
       rect:
         serializedVersion: 2
         x: 1
         y: 156
-        width: 48
-        height: 73
+        width: 24
+        height: 68
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,13 +179,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gates_4
+      name: gates 4b
       rect:
         serializedVersion: 2
-        x: 72
+        x: 96
         y: 156
-        width: 48
-        height: 73
+        width: 24
+        height: 68
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,12 +200,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gates_5
+      name: gates 5a
       rect:
         serializedVersion: 2
         x: 0
         y: 76
-        width: 48
+        width: 24
         height: 74
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -221,13 +221,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gates_7
+      name: gates 6b
       rect:
         serializedVersion: 2
-        x: 68
-        y: 75
-        width: 52
-        height: 73
+        x: 96
+        y: 76
+        width: 24
+        height: 71
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,12 +242,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gates_8
+      name: gates 7a
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 24
         height: 73
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -263,13 +263,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gates_9
+      name: gates 8a
       rect:
         serializedVersion: 2
-        x: 78
+        x: 80
         y: 0
-        width: 48
-        height: 73
+        width: 25
+        height: 70
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,6 +279,174 @@ TextureImporter:
       bones: []
       spriteID: bcbcdddff8fb7cc4ba16353683abcc39
       internalID: -1225091497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gates 1b
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 236
+        width: 24
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c80ddf756bfab4f8938bbffc0208ad
+      internalID: -1592839512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gates 2a
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 236
+        width: 24
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4a312ab80ba83428d016598700efd2
+      internalID: 1225163094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gates 4a
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 156
+        width: 24
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f8cf07159256d49b6cf2d0e049df33
+      internalID: 1338986915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gates 3b
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 156
+        width: 24
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ca7a605cc9b5049879ccaad7b99698
+      internalID: -1926832630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gates 5b
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 76
+        width: 24
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0910e2b897f6ea24295854b332a955fd
+      internalID: -127857672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gates 6a
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 76
+        width: 28
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5d718228b409241b19d4b4e277f5c6
+      internalID: -154340334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gate 8b
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 21
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e760d6e3de379cc40bfea72b2e6c8900
+      internalID: 292045137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gates7b
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 24
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97600cbbb2a7cf34e9b3bd20d9a397bc
+      internalID: 534140437
       vertices: []
       indices: 
       edges: []
@@ -294,17 +462,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gates_6: 1225163094
-      gates_10: 1338986915
-      gates_4: -828854315
-      gates_7: -286224018
-      gates_5: 546683346
-      gates_2: -1592839512
-      gates_0: 1018475335
-      gates_9: -1225091497
-      gates_1: -1937400811
-      gates_8: 484129675
-      gates_3: 268229083
+      gates 6b: -286224018
+      gates 1b: -1592839512
+      gates 2a: 1225163094
+      gates 2b: -1937400811
+      gates 4b: -828854315
+      gate 1a: 1018475335
+      gates 3a: 268229083
+      gates 4a: 1338986915
+      gates 5a: 546683346
+      gates 5b: -127857672
+      gate 8b: 292045137
+      gates 8a: -1225091497
+      gates 3b: -1926832630
+      gates 6a: -154340334
+      gates7b: 534140437
+      gates 7a: 484129675
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
