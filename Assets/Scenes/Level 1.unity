@@ -24956,26 +24956,26 @@ CompositeCollider2D:
   - m_Collider: {fileID: 455659796}
     m_ColliderPaths:
     - - X: -1094273280
-        Y: 81902488
+        Y: 89644128
       - X: -2504366848
         Y: 193695856
       - X: -2514470400
         Y: -151225328
       - X: -1426294400
         Y: -173102224
-      - X: -717664384
-        Y: -101136720
+      - X: -607145216
+        Y: -118483704
       - X: 87416416
-        Y: -109371880
+        Y: -121514768
       - X: 87617824
         Y: 75279392
   m_CompositePaths:
     m_Paths:
     - - {x: -142.62944, y: -17.310223}
-      - {x: -71.76644, y: -10.113672}
-      - {x: 8.741642, y: -10.937159}
+      - {x: -60.714523, y: -11.848371}
+      - {x: 8.741642, y: -12.151447}
       - {x: 8.761754, y: 7.5279393}
-      - {x: -109.42733, y: 8.1902485}
+      - {x: -109.42733, y: 8.964413}
       - {x: -250.43669, y: 19.369555}
       - {x: -251.44702, y: -15.122533}
   m_VertexDistance: 0.0005
@@ -25026,12 +25026,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -88.24784, y: 8.1902485}
+    - - {x: -88.24784, y: 8.964413}
       - {x: -201.96506, y: 19.369585}
       - {x: -202.77986, y: -15.122533}
       - {x: -115.02374, y: -17.310223}
-      - {x: -57.87616, y: -10.113672}
-      - {x: 7.049711, y: -10.937188}
+      - {x: -48.963326, y: -11.848371}
+      - {x: 7.049711, y: -12.151477}
       - {x: 7.0659537, y: 7.527939}
 --- !u!1 &519420028
 GameObject:
@@ -25121,7 +25121,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -25145,7 +25145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.589808, y: -0.38463998, z: -10}
+  m_LocalPosition: {x: -6.21, y: 1.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25769,7 +25769,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1977546515}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 8
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -25793,7 +25793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599017913}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.21, y: 2.5, z: -10}
+  m_LocalPosition: {x: -6.21, y: 1.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25977,7 +25977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665651988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -10.2, z: 0}
+  m_LocalPosition: {x: 0, y: -12.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26088,6 +26088,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 1623221856}
   enemyPrefab: {fileID: 8328515720298123753, guid: 955faf4a7a57da746833b6b88c521672, type: 3}
+  menu: {fileID: 0}
+  initialMenu: {fileID: 0}
+  optionMenu1: {fileID: 0}
 --- !u!1 &1830080269
 GameObject:
   m_ObjectHideFlags: 0
