@@ -143,6 +143,10 @@ public class PlayerController : MonoBehaviour
             CheckpointRespawn();
             
         }
+        else if (collision.tag == "LevelEnd")
+        {
+            LevelEnd();
+        }
     }
 
     #endregion
@@ -232,6 +236,10 @@ public class PlayerController : MonoBehaviour
         if (Grounded && rb.velocity.x == 0f && canAttack)
         {
             animator.Play("ANIM_Player_Attack_Basic");
+        }
+        else if (Grounded && rb.velocity.x !=0f && canAttack)
+        {
+            animator.Play("ANIM_Player_Attack_Walk");
         }
         
     }
@@ -339,5 +347,14 @@ public class PlayerController : MonoBehaviour
         FindObjectOfType<AudioManager>().PlayerSoundSword();
     }
     #endregion
+
+    private void LevelEnd()
+    {
+        FindObjectOfType<GameController>().FadeEndScreen();
+        canMove = false;
+        rb.velocity = new Vector2(0, 0);
+        canAttack = false;
+        
+    }
   
 }
