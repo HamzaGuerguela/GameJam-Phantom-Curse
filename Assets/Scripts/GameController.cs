@@ -90,6 +90,8 @@ public class GameController : MonoBehaviour
             
             Cursor.lockState = CursorLockMode.None;
             
+            initialMenu.SetActive(true);
+            
             Time.timeScale = 0f;
             return;
             
@@ -125,9 +127,7 @@ public class GameController : MonoBehaviour
 
     public void Options()
     {
-        initialMenu.SetActive(false);
         
-        optionMenu1.SetActive(true);
     }
 
     #endregion
