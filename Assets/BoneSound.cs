@@ -10,6 +10,7 @@ public class BoneSound : MonoBehaviour
         if (col.tag == "Player")
         {
             FindObjectOfType<AudioManager>().BoneSound();
+            Debug.Log("BoneSound");
         }
     }
 }

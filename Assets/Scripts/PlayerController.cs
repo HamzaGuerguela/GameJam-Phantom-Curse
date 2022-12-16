@@ -66,8 +66,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        
-        
         playerActionControls = new PlayerActionControls();
 
         rb = GetComponent<Rigidbody2D>();
@@ -87,8 +85,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1f;
-        
         playerActionControls.Player.Jump.started += _ => Jump();
         playerActionControls.Player.Jump.canceled += _ => LazyJump();
         
@@ -102,7 +98,6 @@ public class PlayerController : MonoBehaviour
         
         // Make Player turn left 
         transform.localScale = new Vector2(-1f, 1f);
-        
     }
 
     private void FixedUpdate()

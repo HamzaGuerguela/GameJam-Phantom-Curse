@@ -1638,10 +1638,6 @@ MonoBehaviour:
   swordSoundAudioSource: {fileID: 0}
   CheckpointSounds: []
   checkpointSoundAudioSource: {fileID: 0}
-  enemySounds: []
-  enemyDeathSoundAudioSource: {fileID: 0}
-  boneSounds: []
-  boneSoundAudioSource: {fileID: 0}
 --- !u!114 &1144174138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,13 +2864,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1271480083}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: ExitButton
+      - m_Target: {fileID: 1271480082}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
