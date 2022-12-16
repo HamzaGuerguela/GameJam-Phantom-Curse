@@ -85,6 +85,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+        
         playerActionControls.Player.Jump.started += _ => Jump();
         playerActionControls.Player.Jump.canceled += _ => LazyJump();
         
