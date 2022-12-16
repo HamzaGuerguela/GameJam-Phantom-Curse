@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 using Random = UnityEngine.Random;
 
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     private bool canAttack = true;
 
+    public bool canLook = true;
+
     private Animator animator;
 
     private float direction = 0f;
@@ -58,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private GameObject playerObject;
 
     private RigidbodyConstraints rbOriginalConstraints;
+    
     
     
     #endregion
@@ -159,12 +163,12 @@ public class PlayerController : MonoBehaviour
     {
         direction = playerActionControls.Player.Move.ReadValue<float>();
 
-        if (direction > 0f)
+        if (direction > 0f && canLook)
         {
             rb.velocity = new Vector2(direction * movementSpeed, rb.velocity.y);
             transform.localScale = new Vector2(1f, 1f);
         }
-        else if (direction < 0f)
+        else if (direction < 0f && canLook)
         {
             rb.velocity = new Vector2(direction * movementSpeed, rb.velocity.y);
             transform.localScale = new Vector2(-1f, 1f);
@@ -356,7 +360,8 @@ public class PlayerController : MonoBehaviour
         canMove = false;
         rb.velocity = new Vector2(0, 0);
         canAttack = false;
-        
+        GetComponent<Light2D>().enabled = false;
+
     }
 
 }

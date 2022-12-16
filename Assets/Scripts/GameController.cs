@@ -103,6 +103,7 @@ public class GameController : MonoBehaviour
             initialMenu.SetActive(true);
             
             Time.timeScale = 0f;
+            FindObjectOfType<PlayerController>().canLook = false;
             return;
             
         }
@@ -114,8 +115,9 @@ public class GameController : MonoBehaviour
             Time.timeScale = 1f;
             
             Cursor.lockState = CursorLockMode.Locked;
-            
+            FindObjectOfType<PlayerController>().canLook = true;
             optionMenu1.SetActive(false);
+            
             
             return;
         }
